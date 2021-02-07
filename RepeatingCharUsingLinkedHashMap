@@ -1,0 +1,24 @@
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+ class LinkedHashMapFirstCharNonRepeated {
+    public static void main(String[] argh) {
+        Scanner sc = new Scanner(System.in);
+        String l = sc.nextLine();
+        System.out.println(firstCharNoRepeated(l));
+    }
+
+    static String firstCharNoRepeated(String l) {
+        Map<String, Integer> chars = new HashMap<String , Integer>();
+        for(int i=0; i < l.length(); i++) {
+            String c = String.valueOf(l.charAt(i));
+            if(!chars.containsKey(c)){
+                chars.put(c, i);
+            } else {
+                chars.remove(c);
+            }
+        }
+        return chars.keySet().iterator().next();
+    }
+}
