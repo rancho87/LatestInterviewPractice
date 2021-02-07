@@ -1,0 +1,38 @@
+import java.util.Scanner;
+
+public class MyClass {
+    
+    
+    
+   static Scanner sc = new Scanner(System.in);
+    
+    
+    static int recursiveFactorial(int n){
+        
+        if(n ==1)
+            return 1;
+        return n * recursiveFactorial(n-1);
+    }
+    
+    
+    static int iterativeFactorial(int n){
+        
+        int fact=1;
+        for(int i=1 ;i<=n ;i++){
+            
+            fact *= i;
+        }
+        return fact;
+    }
+    
+    public static void main(String args[]) {
+      
+      int res = 0;
+      int number = sc.nextInt();
+    
+      res =MyClass.recursiveFactorial(number);
+      System.out.println(res);
+      res =MyClass.iterativeFactorial(number);
+      System.out.println(res);
+    }
+}
