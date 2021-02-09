@@ -22,3 +22,31 @@ import java.util.Scanner;
         return chars.keySet().iterator().next();
     }
 }
+
+==========================================================================================
+
+import java.util.LinkedHashMap;
+import java.util.*;
+import java.util.Scanner;
+
+ public class LinkedHashMapFirstCharNonRepeated {
+    public static void main(String[] argh) {
+        Scanner sc = new Scanner(System.in);
+        String l = sc.nextLine();
+        System.out.println(firstCharNoRepeated(l));
+    }
+
+    static String firstCharNoRepeated(String l) {
+        Map<String, Integer> chars = new LinkedHashMap<String , Integer>();
+        for(int i=0; i < l.length(); i++) {
+            char[] ch = l.toCharArray(); 
+            String c = String.valueOf(ch[i]);
+            if(!chars.containsKey(c)){
+                chars.put(c, i);
+            } else {
+                chars.remove(c);
+            }
+        }
+        return chars.keySet().toArray()[0].toString();
+    }
+}
